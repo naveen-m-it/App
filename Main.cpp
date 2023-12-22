@@ -4,16 +4,6 @@ LRESULT Main::WinProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     PAINTSTRUCT ps;
     switch (uMsg) {
-    case WM_SIZING:
-    {    
-        RECT rc;
-        GetClientRect(hwnd, &rc);
-        HDC hdc = BeginPaint(hwnd, &ps);
-        FillRect(hdc, &rc, (HBRUSH)(COLOR_WINDOW + 1));
-        TextOutW(hdc, rc.right / 2, rc.bottom / 2, L"Hello, World!", 14);
-        EndPaint(hwnd, &ps);
-    }
-        break;
     case WM_PAINT:
     {
         HDC hdc = BeginPaint(hwnd, &ps);
